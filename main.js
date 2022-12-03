@@ -60,22 +60,24 @@ function game() {
         if (playerSelection !== 'ROCK' && playerSelection !== 'PAPER' && playerSelection !== 'SCISSORS') {
             console.log("Nice try! Please enter a valid input.");
         }
-        let computerSelection = computersPlay();
-        check = playRound(playerSelection, computerSelection);
-        if ((check == "You Won! Rock beats Scissors!") || (check == "You Won! Paper beats Rock!") || (check == "You Won! Scissors beats Paper!")){
-            player = player + 1;
-            console.log(check);
-            console.log("The new score is: Player: " + player +" & Computer: " + computer);
+        else{
+            let computerSelection = computersPlay();
+            check = playRound(playerSelection, computerSelection);
+            if ((check == "You Won! Rock beats Scissors!") || (check == "You Won! Paper beats Rock!") || (check == "You Won! Scissors beats Paper!")){
+                player = player + 1;
+                console.log(check);
+                console.log("The new score is: Player: " + player +" & Computer: " + computer);
+            }
+            else if((check == "You Lose! Rock beats Scissors!") || (check == "You Lose! Scissors beats Paper!") || (check == "You Lose! Paper beats Rock!")){
+                computer = computer + 1;
+                console.log(check);
+                console.log("The new score is: Player: " + player +" & Computer: " + computer);
+            }
+            else if(check == "It's TIE!"){
+                console.log(check);
+                console.log("The score is same as last round: Player: " + player +" & Computer: " + computer);
+            }
         }
-        else if((check == "You Lose! Rock beats Scissors!") || (check == "You Lose! Scissors beats Paper!") || (check == "You Lose! Paper beats Rock!")){
-            computer = computer + 1;
-            console.log(check);
-            console.log("The new score is: Player: " + player +" & Computer: " + computer);
-        }
-        else if(check == "It's TIE!"){
-            console.log(check);
-            console.log("The score is same as last round: Player: " + player +" & Computer: " + computer);
-        } 
     }
     if(computer == 3){
             console.log("Computer wins the game!");
