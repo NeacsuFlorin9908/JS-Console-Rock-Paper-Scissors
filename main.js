@@ -56,7 +56,10 @@ function game() {
     let check;
     while((player != 3) && (computer != 3)){
         let playerChoice = prompt('What is your choice?');
-        let playerSelection = playerChoice.toUpperCase();
+        let playerSelection = playerChoice.toUpperCase().trim();
+        if (playerSelection !== 'ROCK' && playerSelection !== 'PAPER' && playerSelection !== 'SCISSORS') {
+            console.log("Nice try! Please enter a valid input.");
+        }
         let computerSelection = computersPlay();
         check = playRound(playerSelection, computerSelection);
         if ((check == "You Won! Rock beats Scissors!") || (check == "You Won! Paper beats Rock!") || (check == "You Won! Scissors beats Paper!")){
